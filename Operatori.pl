@@ -5,15 +5,18 @@
 %reconsult("Operatori").
 
 %uso operatori
-risultatoUguale(X,Y) :- X =:= Y.
-risultatoDiverso(X,Y) :- X =\= Y.
-paremetriUguali(X,Y) :- X = Y.
+risultatoUguale(X, Y) :-
+    X=:=Y.
+risultatoDiverso(X, Y) :-
+    X=\=Y.
+paremetriUguali(X, Y) :-
+    X=Y.
 
 %uso variabile anonima
-hates(jim,tom).
-hates(pat,bob).
-hates(dog,fox).
-hates(peter,tom).
+hates(jim, tom).
+hates(pat, bob).
+hates(dog, fox).
+hates(peter, tom).
 
 %-------------------------------------
 %Queries

@@ -39,18 +39,27 @@ mother(mother_Lucio_Annibale, lucio).
 mother(mother_Lucio_Annibale, annibale).
 
 %note: X\=Y is equal to dif(X,Y)
-brothers(X,Y) :- father(P,X), father(P,Y),
-     mother(M,X), mother(M,Y),
-     X \= Y.
+brothers(X, Y) :-
+    father(P, X),
+    father(P, Y),
+    mother(M, X),
+    mother(M, Y),
+    X\=Y.
 
 %AND logico: ","
 %OR logico: ";";
-stepbrothers(X,Y) :- father(P,X), father(P,Y), 
-    mother(M,X), mother(M2,Y), 
-    dif(M,M2); 
-    mother(P,X), mother(P,Y), 
-    father(M,X), father(M2,Y), 
-    dif(M,M2).
+stepbrothers(X, Y) :-
+    (   father(P, X),
+        father(P, Y),
+        mother(M, X),
+        mother(M2, Y),
+        dif(M, M2)
+    ;   mother(P, X),
+        mother(P, Y),
+        father(M, X),
+        father(M2, Y),
+        dif(M, M2)
+    ).
 
 
 %-------------------------------------
